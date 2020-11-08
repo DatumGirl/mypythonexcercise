@@ -1,0 +1,58 @@
+class Node():
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class LinkedLst():
+    def __init__(self):
+        self.head=None
+    
+    def print(self):
+        printval=self.head
+        
+        while(printval is not None):
+            print(printval.data)
+            printval=printval.next
+            
+    def AtBegin(self,Newdata):
+        NewNode=Node(Newdata)
+        if(self.head is None):
+            self.head=NewNode
+        else:
+            NewNode.next=self.head
+            self.head=NewNode
+    
+    def AtEnd(self,endData):
+        NewNode=Node(endData)
+        if(self.head is None):
+            self.head=NewNode
+        else:
+            iterval=self.head
+            while(iterval.next is not None):
+                
+                iterval=iterval.next
+            iterval.next=NewNode
+    def inBet(self,prev,data):
+            NewNode=Node(data)
+            if(prev is None ):
+                print("val cannot be inserted")
+            else:
+                insertval=self.head
+                while(insertval is not None):
+                    if(insertval.data==prev):
+                        NewNode.next=insertval.next
+                        insertval.next=NewNode
+                    insertval=insertval.next
+                        
+lst=LinkedLst()
+lst.head=Node("Mon")
+e2=Node("Tue")
+e3=Node("Wed")
+lst.head.next=e2
+e2.next=e3
+lst.AtEnd("Thurs")
+lst.AtBegin("Sun")
+lst.inBet("Tue","1")
+lst.print()
+
+
+        
