@@ -1,0 +1,22 @@
+#last in first out
+class stack():
+    def __init__(self):
+        self.head=[]
+    def push(self,data):
+        self.head.insert(0,data)
+    def pop(self):
+        self.head.pop(0)
+    def print(self):
+        for i in self.head:
+            print(i)
+
+stk=stack()
+stk.push(1)
+stk.push(2)
+stk.push(3)
+stk.push(4)
+stk.push(5)
+stk.push(6)
+stk.push(7)
+stk.pop()
+stk.print()
