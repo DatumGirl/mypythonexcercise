@@ -1,0 +1,49 @@
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+            self.val = val
+            self.next = next
+class Solution(object):
+    def addTwoNumbers(self, l1, l2 ,c = 0):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        val = l1.val + l2.val + c
+        c = val // 10
+        ret = ListNode(val % 10 ) 
+        
+        if (l1.next != None or l2.next != None or c != 0):
+            if l1.next == None:
+                l1.next = ListNode(0)
+            if l2.next == None:
+                l2.next = ListNode(0)
+            ret.next = self.addTwoNumbers(l1.next,l2.next,c)
+        return ret
+    
+    def print(self,ret):
+        while(ret is not None):
+            print(ret.val)
+            ret=ret.next
+l1=ListNode()
+val2=ListNode()
+val3=ListNode()
+l1.val=1
+l1.next=val2
+val2.val=2
+val2.next=val3
+val3.val=3
+
+
+l2=ListNode()
+val21=ListNode()
+val31=ListNode()
+l2.val=1
+l2.next=val2
+val21.val=2
+val21.next=val3
+val31.val=3
+
+sol=Solution()
+sol.addTwoNumbers(l1,l2,c=0)
+sol.print(sol.addTwoNumbers(l1,l2,c=0))
