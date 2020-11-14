@@ -1,0 +1,35 @@
+def myAtoi(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        l=list(s.strip())
+        i=['1','2','3','4','5','6','7','8','9','0']
+        num=[]
+        si=["+","-"]
+        for j in range(len(l)):
+                if(l[0]   in i or (l[0] in si and len(l)>1)):
+                        
+                        if((l[0] in si and l[1] not in i))  :
+                            
+                            return(0)
+                        elif(l[0] in si and l[1] in i and not num):
+                            num.append(l[j])
+                        else:
+                            if(l[j] in i):
+                                num.append(l[j])
+                            else:
+                                break
+                else:
+                    return(0)
+        if(len(l)>0):
+            a=int("".join(num))
+        else:
+            return(0)
+        if(pow(-2,31)<=a<=pow(2,31)-1):
+                return(a)
+        elif(a<0):
+                return(pow(-2,31))
+        else:
+                return(pow(2,31)-1)
+        
