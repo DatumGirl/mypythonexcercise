@@ -1,0 +1,19 @@
+
+#s = "abcabcbb"
+
+def lnsubstr(s):
+    ln=0
+    for i in range(len(s)):
+        l1=list(s[i:])
+        b=[]
+        prev=""
+        for j in l1:
+            if(j not in b):
+                b.append(j)
+            else:
+                break
+        ln=max(ln,len(b))
+    print(ln)
+    
+        
+        
