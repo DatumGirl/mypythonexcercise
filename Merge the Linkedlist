@@ -1,0 +1,43 @@
+#merge two linkedlist
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def __init__(self):
+        self.head=None
+    def print(self):
+        printval=self.head
+        while(printval ):
+            print(printval.data)
+            printval=printval.next
+    #1-2-3 4-5-6
+    def MergeList(self,l1,l2):
+        cur=l1.head
+        
+        tail1=None
+        while(cur.next!=tail1):
+            cur=cur.next
+        cur.next=l2.head
+        return(l1)
+        
+        
+        
+        l1=linkedlist()
+l1.head=Node(1)
+e2=Node(2)
+e3=Node(3)
+l1.head.next=e2
+e2.next=e3
+#l1.print()
+
+l4=linkedlist()
+l4.head=Node(4)
+e5=Node(5)
+e6=Node(6)
+l4.head.next=e5
+e5.next=e6
+#l4.print()
+
+l3=l1.MergeList(l1,l4)
+l3.print()
