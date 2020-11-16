@@ -1,0 +1,18 @@
+Make Two Arrays Equal by Reversing Sub-arrays
+
+class Solution(object):
+    def canBeEqual(self, target, arr):
+        """
+        :type target: List[int]
+        :type arr: List[int]
+        :rtype: bool
+        """
+        for i in target:
+            print(target.count(i),arr.count(i))
+            if(i not in arr or target.count(i)!=arr.count(i)):
+                
+                return False
+            else:
+                pass
+        
+        return True
