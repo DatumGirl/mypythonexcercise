@@ -1,0 +1,10 @@
+bt1=BT()
+bt1.root=Node(10)
+bt1.root.left=Node(9)
+bt1.root.left.left=Node(8)
+bt1.root.right=Node(11)
+bt1.root.right.right=Node(12)
+
+bt1.pre_print(bt1.root)
+bt1.post_print(bt1.root)
+bt1.in_print(bt1.root)
