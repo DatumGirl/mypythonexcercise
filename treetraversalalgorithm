@@ -1,0 +1,27 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+class BT:
+    def __init__(self):
+        self.root=None
+        
+    def pre_print(self,root):#nlr
+        
+        if root:
+            print(root.data)
+            self.pre_print(root.left)
+            self.pre_print(root.right)
+            
+    def in_print(self,root):#lnr
+        if (root):
+            self.in_print(root.left)
+            print(root.data)
+            self.in_print(root.right)
+    def post_print(self,root):#lrn
+        if (root):
+            self.post_print(root.left)
+           
+            self.post_print(root.right)
+            print(root.data)
