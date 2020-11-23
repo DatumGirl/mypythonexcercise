@@ -1,0 +1,22 @@
+class stack:
+    def __init__(self):
+        self.stack=[]
+    def push(self,data):
+        if(data not in self.stack):
+            self.stack.append(data)
+            return True
+        else:
+            return False
+    def peek(self):
+        return(self.stack[-1])
+    def pop(self):
+        self.stack.pop()
+    
+
+st=stack()
+st.push(2)
+st.push(3)
+st.push(4)
+st.peek()
+st.pop()
+st.peek()
