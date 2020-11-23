@@ -1,0 +1,30 @@
+import collections
+class deq:
+    def __init__(self):
+        self.deq=collections.deque([])
+    def add(self,data):
+        self.deq.append(data)
+    def addleft(self,data):
+        self.deq.appendleft(data)
+    def remove(self):
+        self.deq.pop()
+    def removeleft(self):
+        self.deq.popleft()
+    def print(self):
+        return(self.deq)
+
+d=deq()
+d.add(1)
+d.add(2)
+d.add(3)
+d.add(4)
+d.add(5)
+d.print()
+d.addleft(0)
+d.addleft(-1)
+d.addleft(-2)
+d.print()
+d.remove()
+d.print()
+d.removeleft()
+d.print()
