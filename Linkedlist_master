@@ -1,0 +1,69 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class linkedlist:
+    def linkedlist(self):
+        self.head=None
+    def print(self,head):
+        printval=head
+        while(printval):
+            print(printval.data)
+            printval=printval.next
+    def reverse(self):
+        
+        prev=None
+        cur=self.head
+        nt=None
+        while(cur):
+            temp=cur
+            nt=cur.next
+            cur.next=prev
+            prev=temp
+            cur=nt
+        return temp
+    def Atbegin(self,data):
+        Newnode=Node(data)
+        Newnode.next=self.head
+        self.head=Newnode
+        return self.head
+    def AtEnd(self,data):
+        NewNode=Node(data)
+        cur=self.head
+        while(cur.next):
+            cur=cur.next
+        cur.next=NewNode
+        return (self.head)
+    
+    def atMiddle(self,data,prev):
+        Newnode=Node(data)
+        prevnode=Node(prev)
+        cur=self.head
+        while(cur):
+            if(cur.data==prevnode.data):
+                temp_next=cur.next
+                cur.next=Newnode
+                Newnode.next=temp_next
+            cur=cur.next
+        return(self.head)
+                
+        
+    
+list1=linkedlist()
+list1.head=Node(10)
+list1.head.next=Node(9)
+e3=Node(8)
+e4=Node(7)
+list1.head.next.next=e3
+e3.next=e4
+
+#list1.print(list1.head)
+
+#e5=list1.reverse()
+
+#list1.print(e5)
+
+e6=list1.Atbegin(11)
+e7=list1.AtEnd(6)
+e8=list1.atMiddle(6,9)
+list1.print(e8)
