@@ -1,0 +1,106 @@
+class Node:
+    def __init__(self,val):
+        self.data=val
+        self.next=None
+class linkedlist():
+    def __init__(self):
+            self.head=None
+    def print(self):
+        printval=self.head
+        c=0
+        while(printval):
+            print(printval.data)
+            c=c+1
+            printval=printval.next
+        print("the size of the linked list is ",c)
+    def AtBegin(self,data):
+        Newnode=Node(data)
+        Newnode.next=self.head
+        self.head=Newnode
+    def AtEnd(self,data):
+        Endnode=Node(data)
+        cur=self.head
+        while(cur.next):
+            cur=cur.next
+        cur.next=Endnode
+    #9-10-11- 11.5  -12-13-14-15
+
+    def Mid(self,prev,data):
+        Newnode=Node(data)
+        cur=self.head
+        while(cur):
+            nt=cur.next.next
+            if(cur.data==prev):
+                cur.next=Newnode
+                Newnode.next=nt
+                break
+            else:
+                cur=cur.next
+    def search(self,data):
+        cur=self.head
+        while(cur):
+            if(cur.data==data):
+                print(str(data)+" found")
+                return(True)
+            cur=cur.next
+        return False
+    def appendValIndex(self,idx,data):
+        cur=self.head
+        NewNode=Node(data)
+        c=0
+        prev=None
+        #1-2-3-4
+        while(c<=idx):
+            nt=cur.next
+            if(c+1==idx):
+                cur.next=NewNode
+                NewNode.next=nt
+                break
+            cur=cur.next
+            c=c+1
+    def searchIndx(self,idx):
+        cur=self.head
+        c=0
+        while(cur):
+            print(c)
+            if(c==idx):
+                print("the value is "+str(cur.data))
+                return "found"
+            cur=cur.next
+            c=c+1
+        return "not found"
+    def Deletefirst(self):
+        
+        cur=self.head
+        self.head=cur.next
+    def DeleteLast(self):
+        cur=self.head
+        while(cur.next.next):
+            cur=cur.next
+        cur.next=None
+            
+        
+            
+        
+           
+        
+            
+lst1=linkedlist()
+lst1.head=Node(10)
+e1=Node(11)
+e2=Node(12)
+e3=Node(13)
+e4=Node(14)
+lst1.head.next=e1
+e1.next=e2
+e2.next=e3
+e3.next=e4
+lst1.AtBegin(9)
+lst1.AtEnd(15)
+lst1.Mid(11,21)
+lst1.search(22)
+lst1.appendValIndex(2,7)
+#lst1.searchIndx(2)
+#lst1.Deletefirst()
+lst1.DeleteLast()
+lst1.print()
