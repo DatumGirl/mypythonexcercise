@@ -1,0 +1,35 @@
+class TrieNode():
+    def __init__(self,letter):
+        self.letter=letter
+        self.children={}
+        self.isEndOfWord=False
+class Trie():
+    def __init__(self):
+        self.root=TrieNode("*")
+    
+    def addWord(self,word):
+        curNode=self.root
+        for letter in word:
+            
+            if letter not in curNode.children:
+                
+                curNode.children[letter]=TrieNode(letter)
+            curNode=curNode.children[letter]
+        curNode.isEndOfWord=True
+    def doesWordExist(self,word):
+        curNode=self.root
+        for letter in word:
+            #print(curNode.children)
+            if letter not in curNode.children:
+                return False
+            curNode = curNode.children[letter]
+        return curNode.isEndOfWord 
+    
+
+    
+trie=Trie()
+trie.addWord("waiter")
+trie.addWord("shop")
+trie.addWord("shopper")
+
+print(trie.doesWordExist("waiter"))
