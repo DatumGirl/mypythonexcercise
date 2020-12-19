@@ -1,0 +1,27 @@
+class Solution(object):
+    def islandPerimeter(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        
+        [[0,1,0,0],
+         [1,1,1,0],
+         [0,1,0,0],
+         [1,1,0,0]]
+        """
+        sum=0
+        r_l=len(grid)-1 #4-1
+        c_l=len(grid[0])-1#4
+        for r in range(len(grid)):
+            for c in range(len(grid[0])):
+                
+                if(grid[r][c]==1):
+                    sum=sum+4
+                    if((c+1)<=c_l ):
+                        if(grid[r][c+1]==1):
+                            sum=sum-2
+                    if ((r+1)<=r_l):
+                        if(grid[r+1][c]==1):
+                            sum=sum-2
+                
+        return sum
