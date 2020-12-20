@@ -1,0 +1,26 @@
+import numpy as np
+class Solution(object):
+    def matrixBlockSum(self, mat, K):
+        """
+        :type mat: List[List[int]]
+        :type K: int
+        :rtype: List[List[int]]
+        [[1,2,3],[4,5,6],[7,8,9]], K = 1
+        00 01 02
+        10 11 12
+        20 21 22
+        
+     
+   
+        """
+        m=len(mat)
+        n=len(mat[0])
+        ans=np.zeros((m,n),dtype=np.int64)
+        a=np.array(mat)
+        for i in range(m):
+            for j in range(n):
+                    li,ui=max(0,i-K),min(len(mat),i+K)
+                    lj,uj=max(0,j-K),min(len(mat),j+K)
+                    ans[i][j]=np.sum(a[li:ui+1,lj:uj+1])
+                    
+        return ans
