@@ -1,0 +1,18 @@
+import numpy as np
+class Solution(object):
+    def countSquares(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: int
+        """
+        a_1=np.array((matrix))
+       
+        arr2=np.zeros((len(matrix)+1,len(matrix[0])+1),dtype=np.int64)
+        
+        for i in range(0,len(matrix)):
+            
+            for j in range(0,len(matrix[0])):
+                 if(matrix[i][j]==1):
+                    arr2[i+1][j+1]=1+min(arr2[i][j+1],arr2[i+1][j],arr2[i][j])
+        return(np.sum(arr2))
+                
