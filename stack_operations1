@@ -1,0 +1,12 @@
+class stack1:
+    def __init__(self):
+        self.stack=[]
+        
+    def Add(self,data):
+        self.stack.append(data)
+    def peek(self):
+        return self.stack[-1]
+    def remove(self):
+        self.stack.pop()
+    def print(self):
+        print(self.stack)
