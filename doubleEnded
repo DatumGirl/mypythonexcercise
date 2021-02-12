@@ -1,0 +1,9 @@
+import collections
+
+doubleEnded=collections.deque([1,2,3,4,5])
+doubleEnded.append(6)
+doubleEnded.appendleft(0)
+print(doubleEnded)
+doubleEnded.pop()
+doubleEnded.popleft()
+print(doubleEnded)
